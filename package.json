@@ -4,16 +4,21 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha **/*.test.js",
     "start": "node server/app.js"
   },
   "engines": {
-    "node": "8.14.0"
+    "node": "8.15.0"
   },
   "keywords": [],
   "author": "Sanskar",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "expect": "^24.0.0",
+    "mocha": "^5.2.0"
   }
 }
