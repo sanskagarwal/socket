@@ -69,7 +69,7 @@ $("#message-form").on("submit",function(e){
     if(messageText==="") {
         return false;
     }
-    socket.emit("createMessage",{from: "Dk", text: messageText},function() {
+    socket.emit("createMessage",{text: messageText},function() {
         $("[name='message']").val("");
     });
 });
@@ -80,7 +80,7 @@ locationButton.on("click", function() {
         locationButton.attr('disabled', true).text("Sending Location...");
         navigator.geolocation.getCurrentPosition(function(position) {
             locationButton.removeAttr('disabled').text("Send Location");
-            socket.emit("createLocationMessage", {from: "Ds", latitude: position.coords.latitude, longitude: position.coords.longitude});
+            socket.emit("createLocationMessage", {latitude: position.coords.latitude, longitude: position.coords.longitude});
         }, function() {
             locationButton.removeAttr('disabled').text("Send Location");
             alert("Unable to fetch Location!");
